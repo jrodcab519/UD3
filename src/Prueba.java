@@ -24,5 +24,12 @@ public class Prueba {
         System.out.println(p.nombre + " " + p.apellidos + ", DNI: " + p.dni);
 
         p.imprimirDatos();
+
+        Contacto c = new Contacto();
+        c.nombre = " Juan Diego";
+        c.telefono = "12345678P";
+
+        System.out.println(c.toString());
+
     }
 }
