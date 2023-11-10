@@ -8,9 +8,10 @@ public class Elipse {
         this(1,1);
     }
 
-    public Elipse(double a) throws Exception {
+    public Elipse(double radio) throws Exception {
 
-        this.a = a;
+        this.a = radio;
+        this.b = radio;
     }
 
     public Elipse(double a, double b) throws Exception {
