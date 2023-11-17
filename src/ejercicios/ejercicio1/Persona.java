@@ -77,7 +77,7 @@ public class Persona {
     }
 
     public int calcularIMC() {
-        double imc = (int) (peso / (altura*altura));
+        double imc = (int) (this.getPeso() / (this.getAltura() * this.getAltura()));
         if(imc < 20){
             return BAJO_PESO_IDEAL;
         }else if (imc > 25){
@@ -88,15 +88,16 @@ public class Persona {
     }
 
     public boolean mayorEdad(){
-        if (edad >= 18){
+        if (this.getEdad() >= 18){
             return true;
-        }else {
-            return false;
         }
+        return false;
+
     }
 
     private boolean comprobarSexo(){
-        if(sexo != 'H' || sexo != 'M'){
+        if(this.getSexo() != 'H' || this.getSexo() != 'M'){
+            this.setSexo('H');
             return true;
         }
         else{
@@ -116,6 +117,6 @@ public class Persona {
 
 
     public String toString(){
-        return nombre + " con DNI: " + dni + ", de " + edad + "años, una altura de " + altura + ", un peso de " + peso;
+        return this.getNombre() + " con DNI: " + this.getDni() + ", sexo : " + this.getSexo() + " de " + this.getEdad() + " años, una altura de " + this.getAltura() + " centímetros "+ " y un peso de " + this.getPeso () + " kilogramos";
     }
 }
