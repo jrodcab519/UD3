@@ -7,19 +7,19 @@ public class PersonaPrincipal {
 
         Scanner s = new Scanner(System.in);
 
-        System.out.println("Introduce un nombre");
+        System.out.println("Introduce un nombre:");
         String nombre = s.nextLine();
 
-        System.out.println("Introduce una edad");
+        System.out.println("Introduce una edad:");
         int edad = s.nextInt();
 
-        System.out.println("Introduce el sexo (H para hombre y M para mujer)");
+        System.out.println("Introduce el sexo (H para hombre y M para mujer):");
         char sexo = s.next().charAt(0);
 
-        System.out.println("Introduce un peso en Kg");
+        System.out.println("Introduce un peso en Kg:");
         double peso = s.nextDouble();
 
-        System.out.println("Introduce una altura en metros");
+        System.out.println("Introduce una altura en metros:");
         double altura = s.nextDouble();
 
         Persona a = new Persona(nombre, edad, sexo, peso, altura);
