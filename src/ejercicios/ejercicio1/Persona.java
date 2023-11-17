@@ -11,6 +11,7 @@ public class Persona {
     private final int SOBREPESO = 1;
     private final int BAJO_PESO_IDEAL = -1;
     private final int PESO_IDEAL = 0;
+    private final String letras = "TRWAGMYFPDXBNJZSQVHLCKE";
 
 
 
@@ -104,11 +105,9 @@ public class Persona {
     }
 
     public void generarDNI(){
-        String letras = "TRWAGMYFPDXBNJZSQVHLCKE";
 
         int numero = (int) (Math.random()*100000000);
         int indice = numero % 23;
-
         char letra = letras.charAt(indice);
 
         this.dni = String.valueOf(numero) + letra;
