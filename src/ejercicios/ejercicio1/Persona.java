@@ -107,12 +107,14 @@ public class Persona {
 
     public void generarDNI(){
 
-        int numero = (int) (Math.random()*100000000);
-        int indice = numero % 23;
-        char letra = letras.charAt(indice);
+        if(this.getDni() != null && this.getDni().length() >0 ) {
 
-        this.dni = String.valueOf(numero) + letra;
+            int numero = (int) (Math.random() * 100000000);
+            int indice = numero % 23;
+            char letra = letras.charAt(indice);
 
+            this.dni = String.valueOf(numero) + letra;
+        }
     }
 
 
