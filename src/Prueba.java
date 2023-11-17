@@ -1,3 +1,6 @@
+import Figuras.Punto;
+import Figuras.Rectangulo;
+
 public class Prueba {
     public static void main(String[] args) throws Exception {
 
