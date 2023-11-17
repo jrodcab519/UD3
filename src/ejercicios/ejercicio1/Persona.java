@@ -95,7 +95,7 @@ public class Persona {
 
     }
 
-    private boolean comprobarSexo(){
+    public boolean comprobarSexo(){
         if(this.getSexo() != 'H' || this.getSexo() != 'M'){
             this.setSexo('H');
             return true;

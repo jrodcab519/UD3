@@ -24,9 +24,11 @@ public class PersonaPrincipal {
 
         Persona a = new Persona(nombre, edad, sexo, peso, altura);
         a.generarDNI();
+        a.comprobarSexo();
 
         Persona b = new Persona(nombre, edad, sexo);
         b.generarDNI();
+        b.comprobarSexo();
 
         Persona c = new Persona();
 
@@ -36,6 +38,7 @@ public class PersonaPrincipal {
         c.setPeso(75);
         c.setAltura(1.82);
         c.generarDNI();
+        c.comprobarSexo();
 
         System.out.println("El IMC de " + nombre + " es: " + a.calcularIMC());
         System.out.println("El IMC de " + nombre + " es: " + b.calcularIMC());
