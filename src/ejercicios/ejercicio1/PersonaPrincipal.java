@@ -19,16 +19,15 @@ public class PersonaPrincipal {
         System.out.println("Introduce un peso en Kg:");
         double peso = s.nextDouble();
 
-        System.out.println("Introduce una altura en metros:");
+        System.out.println("Introduce una altura en metros (por ejemplo: 1,75) :");
         double altura = s.nextDouble();
 
         Persona a = new Persona(nombre, edad, sexo, peso, altura);
         a.generarDNI();
         a.comprobarSexo();
 
-        Persona b = new Persona(nombre, edad, sexo);
+        Persona b = new Persona( "Patricia", 17, 'M');
         b.generarDNI();
-        b.comprobarSexo();
 
         Persona c = new Persona();
 
@@ -40,10 +39,6 @@ public class PersonaPrincipal {
         c.generarDNI();
         c.comprobarSexo();
 
-        System.out.println("El IMC de " + nombre + " es: " + a.calcularIMC());
-        System.out.println("El IMC de " + nombre + " es: " + b.calcularIMC());
-        System.out.println("El IMC de José es: " + c.calcularIMC());
-
         System.out.println("¿Es " + nombre + " mayor de edad? " + a.mayorEdad());
         System.out.println("¿Es " + nombre + " mayor de edad? " + b.mayorEdad());
         System.out.println("¿Es José mayor de edad? " + c.mayorEdad());
@@ -52,5 +47,21 @@ public class PersonaPrincipal {
         System.out.println(b);
         System.out.println(c);
 
+
+        comprobarIMC(a);
+        comprobarIMC(b);
+        comprobarIMC(c);
+
+    }
+
+    private static void comprobarIMC(Persona persona){
+        int imc = persona.calcularIMC();
+        if(imc == 0){
+            System.out.println(persona.getNombre() + " está en su peso ideal");
+        } else if (imc == -1) {
+            System.out.println(persona.getNombre() + " está por debajo de su peso ideal");
+        } else {
+            System.out.println(persona.getNombre() + " tiene sobrepeso");
+        }
     }
 }

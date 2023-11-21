@@ -107,18 +107,19 @@ public class Persona {
 
     public void generarDNI(){
 
-        if(this.getDni() != null && this.getDni().length() >0 ) {
+        if(this.getDni() == null || this.getDni().length() == 0 ) {
 
             int numero = (int) (Math.random() * 100000000);
             int indice = numero % 23;
             char letra = letras.charAt(indice);
 
             this.dni = String.valueOf(numero) + letra;
+
         }
     }
 
 
     public String toString(){
-        return this.getNombre() + " con DNI: " + this.getDni() + ", sexo : " + this.getSexo() + " de " + this.getEdad() + " años, una altura de " + this.getAltura() + " centímetros "+ " y un peso de " + this.getPeso () + " kilogramos";
+        return this.getNombre() + " con DNI: " + this.getDni() + ", sexo : " + this.getSexo() + " de " + this.getEdad() + " años, una altura de " + this.getAltura() + " metros "+ " y un peso de " + this.getPeso () + " kilogramos";
     }
 }
