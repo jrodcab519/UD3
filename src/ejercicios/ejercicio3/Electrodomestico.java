@@ -2,8 +2,8 @@ package ejercicios.ejercicio3;
 
 public class Electrodomestico {
     private  double precioBase = 100;
-    private static String color = "blanco";
-    private static char consumoEnergetico = 'F';
+    private String color = "blanco";
+    private char consumoEnergetico = 'F';
     private  double peso = 5;
 
     public Electrodomestico() {
@@ -17,13 +17,12 @@ public class Electrodomestico {
     public Electrodomestico(double precioBase, String color, char consumoEnergetico, double peso) {
         this.precioBase = precioBase;
         this.color = color;
+        comprobarColor(color);
         this.consumoEnergetico = consumoEnergetico;
+        comprobarConsumoEnergetico(consumoEnergetico);
         this.peso = peso;
     }
 
-    public  void setColor(String color) {
-        Electrodomestico.color = color;
-    }
 
     public double getPrecioBase() {
         return precioBase;
@@ -41,47 +40,53 @@ public class Electrodomestico {
         return peso;
     }
 
-    public  void setConsumoEnergetico(char consumoEnergetico) {
-        Electrodomestico.consumoEnergetico = consumoEnergetico;
-    }
 
     public String toString(){
         return "Electrodoméstico con precio base de: " + getPrecioBase() + ", color: " + getColor() + ", consumo energético de tipo: " + getConsumoEnergetico() + " y peso: " + getPeso();
     }
 
 
-    public boolean comprobarConsumoEnergetico(){
-        if(this.getConsumoEnergetico() != 'A' || this.getConsumoEnergetico() != 'B' || this.getConsumoEnergetico() != 'C' || this.getConsumoEnergetico() != 'D' || this.getConsumoEnergetico() != 'E' || this.getConsumoEnergetico() != 'F' ){
-            this.setConsumoEnergetico('F');
-            return true;
-        }
-        else{
-            return false;
+    private void comprobarConsumoEnergetico(char letra){
+        switch (letra){
+            case 'A','B','C','D','E','F':
+                this.consumoEnergetico = letra;
+                break;
+            default:
+                this.consumoEnergetico = 'F';
         }
     }
 
-    public boolean comprobarColor() {
-        if (this.getColor() != "blanco" || this.getColor() != "negro" || this.getColor() != "rojo" || this.getColor() != "azul" || this.getColor() != "gris") {
-            this.setColor("blanco");
-            return true;
+    private void comprobarColor(String color) {
+        if (color.equalsIgnoreCase("blanco") || color.equalsIgnoreCase("negro") || color.equalsIgnoreCase("azul") || color.equalsIgnoreCase("rojo") || color.equalsIgnoreCase("gris")){
+            this.color = color.toLowerCase();
         } else {
-            return false;
+            this.color = "blanco";
         }
     }
 
     public double precioFinal(){
-      if (getConsumoEnergetico() == 'A') {
-          return 100;
-      } else if (getConsumoEnergetico() == 'B') {
-          return 80;
-      } else if (getConsumoEnergetico() == 'C') {
-          return 60;
-      } else if (getConsumoEnergetico() == 'D') {
-          return 50;
-      } else if (getConsumoEnergetico() == 'E') {
-          return 30;
-      } else {
-          return 10;
-      }
+
+        double precio = 0;
+        switch (this.consumoEnergetico){
+            case 'A':
+                precio =  this.precioBase + 100;
+                break;
+            case 'B':
+                precio =  this.precioBase + 80;
+                break;
+            case 'C':
+                precio =  this.precioBase + 60;
+                break;
+            case 'D':
+                precio =  this.precioBase + 50;
+                break;
+            case 'E':
+                precio =  this.precioBase + 30;
+                break;
+            case 'F':
+                precio =  this.precioBase + 10;
+                break;
+        }
+        return precio;
     }
 }
