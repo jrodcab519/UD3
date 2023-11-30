@@ -15,6 +15,6 @@ public class Estudiante {
     }
 
     public String toString(){
-        return " Nombre: " + nombre + ", Apellidos " + apellidos + ", NIE: " + nie;
+        return " Nombre: " + nombre + ", Apellidos: " + apellidos + ", NIE: " + nie;
     }
 }
